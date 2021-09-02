@@ -1,0 +1,39 @@
+.container{
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: calc(100vh - 85px);
+    padding: 30px 15px;
+}
+
+.main{
+    margin: 0;
+}
+
+.second{
+    margin: 0;
+    color: rgb(95, 95, 95);
+    font-size: 15px;
+}
+
+.btn{
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: rgb(230, 230, 230);
+    background-color: rgb(38, 114, 255);
+    transition: all ease .2s;
+    padding: 10px 0;
+    overflow: hidden;
+    
+    &:hover{
+    background-color: rgb(0, 73, 209);
+    }
+
+    & a{
+        padding: 10px 20px;
+    }
+}
