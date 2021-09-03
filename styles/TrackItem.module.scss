@@ -18,13 +18,35 @@
 }
 
 .name{
-
+    font-size: 18px;
+    transition: all ease .2s;
 }
 
 .artist{
+    font-size: 14px;
+    color: rgb(117, 117, 117);
+    transition: all ease .2s;
+}
 
+.info{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover{
+        & div {
+            color: rgb(0, 153, 255);
+        }
+    }
 }
 
 .del{
-
+    margin-left: auto;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
