@@ -29,6 +29,10 @@ const TrackPage = () => {
                             <div className={s.listens}>Listens: <b>{ track.listens }</b></div>
                         </div>
                     </div>
+                    <div className={s.secondary}>
+                        <h2 className={s.textHead}>Text</h2>
+                        <div className={s.text}>{ track.text }</div>
+                    </div>
                 </div>
         </MainLayout>
     )
