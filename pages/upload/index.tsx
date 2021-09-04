@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import AddCoverTrack from '../../components/AddCoverTrack'
+import AddTrack from '../../components/AddTrack'
 import AddTrackInfo from '../../components/AddTrackInfo'
 import StepWrapper from '../../components/StepWrapper'
 import MainLayout from '../../layouts/MainLayout'
@@ -15,6 +17,8 @@ const Upload = () => {
         <MainLayout title='upload'>
             <StepWrapper step={step}>
                 { step === 0 && <AddTrackInfo/> }
+                { step === 1 && <AddCoverTrack/> }
+                { step === 2 && <AddTrack/> }
                 <div className={s.btnContainer}>
                     <button onClick={prev} disabled={step === 0} className={s.btn}>Previous</button>
                     <button onClick={next} className={s.btn}>Next</button>
