@@ -20,11 +20,13 @@ const Header = () => {
 
     return (
         <header className={s.header}>
-            <Image
-                src='/logo.png'
-                width='75'
-                height='75'
-            />
+            <Link href='/'>
+                <Image
+                    src='/logo.png'
+                    width='75'
+                    height='75'
+                />
+            </Link>
             <nav className={s.nav}>
                 { renderLinks }
             </nav>

@@ -36,6 +36,7 @@ const AddTrackInfo = () => {
             >
             {({ isSubmitting, errors }) => (
                 <Form className={s.form}>
+                    <h2 className='header'>Upload track info</h2>
                     <Field type="text" name="name" placeholder="Track name" className={`${s.field} ${errors.name ? s.err : ''}`} />
                     <Field type="text" name="artist" placeholder="Track artist" className={`${s.field} ${errors.text ? s.err : ''}`} />
                     <Field type="text" name="text" placeholder="Track text" as='textarea'  className={`${s.field} ${errors.text ? s.err : ''}`} />

@@ -28,6 +28,7 @@ const AddCoverTrack = () => {
             >
             {({ isSubmitting, errors }) => (
                 <Form className={s.form}>
+                    <h2 className='header'>Upload track cover</h2>
                     <Field type="file" name="cover" placeholder="Upload a track cover" className={`${s.field} ${errors.cover ? s.err : ''}`} />
                     <button type="submit" disabled={isSubmitting} className={s.btn} >
                         Ok
