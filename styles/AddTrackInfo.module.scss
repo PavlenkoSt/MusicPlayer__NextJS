@@ -1,0 +1,32 @@
+.form{
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field{
+    padding: 10px;
+    border: 2px solid #333;
+}
+
+.err{
+    // border: 2px solid rgb(223, 0, 0);
+}
+
+.btn{
+    padding: 10px 20px;
+    background-color: rgb(105, 105, 105);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all ease .2s;
+    font-size: 20px;
+    text-transform: uppercase;
+
+    &:hover{
+        background-color: rgb(78, 78, 78);
+    }
+}
