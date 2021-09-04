@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import AddComment from '../../components/AddComment'
 import MainLayout from '../../layouts/MainLayout'
 import s from '../../styles/TrackPage.module.scss'
 
@@ -34,6 +35,7 @@ const TrackPage = () => {
                         <div className={s.text}>{ track.text }</div>
                     </div>
                 </div>
+                <AddComment/>
         </MainLayout>
     )
 }
