@@ -1,0 +1,28 @@
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn{
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-size: 13px;
+    background-color: rgb(97, 97, 97);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease .2s;
+
+    &:hover{
+        &:not(:disabled){
+            background-color: rgb(65, 65, 65);
+        }
+    }
+
+    &:disabled{
+        opacity: .5;
+        cursor: default;
+    }
+}
