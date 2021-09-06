@@ -8,7 +8,6 @@ const AddTrack = () => {
             <h2 className='header'>Upload track</h2>
             <FileUploader 
                 accept='audio/*'
-                file=''
                 setFile={() => ({})}
             >
                 <button>Upload a track</button>

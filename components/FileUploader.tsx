@@ -1,15 +1,20 @@
-import React, { FC, useRef } from 'react'
-
+import React, { ChangeEvent, FC, useRef } from 'react'
 
 interface IFileUploaderPropsType {
     accept: string
-    file: any
     setFile: Function
 }
 
-const FileUploader:FC<IFileUploaderPropsType> = ({ accept, file, setFile, children }) => {
+const FileUploader:FC<IFileUploaderPropsType> = ({ accept, setFile, children }) => {
 
     const ref = useRef<any>()
+
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        
+        if(e.target.files && e.target.files[0]){
+            console.log(e.target.files[0]);
+        }
+    }
     
     return (
         <div onClick={() => ref.current.click()} >
@@ -18,6 +23,7 @@ const FileUploader:FC<IFileUploaderPropsType> = ({ accept, file, setFile, childr
                 accept={accept}
                 ref={ref}
                 style={{display: 'none'}}
+                onChange={onChange}
             />
             { children }
         </div>
