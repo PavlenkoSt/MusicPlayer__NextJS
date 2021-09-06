@@ -16,7 +16,9 @@ const MainLayout: FC<IMainLayoutProps> = ({ children, title }) => {
                 {/* <link rel="icon" href="/favicon.ico" /> */}
             </Head>
             <Header/>
-            { children }
+            <div style={{paddingBottom: 100}} >
+                { children }
+            </div>
             <TrackPlayer/>
         </>
     )

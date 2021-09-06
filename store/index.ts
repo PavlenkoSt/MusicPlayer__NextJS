@@ -1,13 +1,8 @@
-import uploadTrackSlice from './slices/uploadTrackSlice'
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from "redux"
 
-export const store = configureStore({
-    reducer: {
-        uploadTrack: uploadTrackSlice
-    },
+
+const store = combineReducers({
+
 })
 
-
-export type RootState = ReturnType<typeof store.getState>
-
-export type AppDispatch = typeof store.dispatch
+export default store
