@@ -1,0 +1,54 @@
+.player{
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    background-color: #ccc;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    gap: 30px;
+    justify-content: space-between;
+    box-shadow: 0 0 2px #333;
+}
+
+.main{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.play{
+    cursor: pointer;
+    padding: 20px;
+}
+
+.name{
+    font-size: 18px;
+    transition: all ease .2s;
+}
+
+.artist{
+    font-size: 14px;
+    color: rgb(117, 117, 117);
+    transition: all ease .2s;
+}
+
+.time{
+    & input{
+        width: 300px;
+    }
+}
+
+.vol{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

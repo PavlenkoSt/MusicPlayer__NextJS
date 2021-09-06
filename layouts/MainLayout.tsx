@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React, { FC } from 'react'
 import Header from '../components/Header'
+import TrackPlayer from '../components/TrackPlayer'
 
 interface IMainLayoutProps {
     title: string;
@@ -16,6 +17,7 @@ const MainLayout: FC<IMainLayoutProps> = ({ children, title }) => {
             </Head>
             <Header/>
             { children }
+            <TrackPlayer/>
         </>
     )
 }
