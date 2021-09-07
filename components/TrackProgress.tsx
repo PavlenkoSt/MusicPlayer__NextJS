@@ -13,7 +13,7 @@ const TrackProgress: FC<ITrackProgressPropsType> = ({ current, max, onChange }) 
         <div className={s.progress}>
             <input
                 type='range'
-                min={current}
+                min={0}
                 max={max}
                 value={current}
                 onChange={onChange}

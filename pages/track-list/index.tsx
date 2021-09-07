@@ -14,10 +14,7 @@ const index = () => {
 
     const renderTracks = tracks.map(track => <TrackItem
         key={track._id}
-        name={track.name}
-        id={track._id}
-        artist={track.artist}
-        picture={track.picture}
+        track={track}
     />)
 
     return (

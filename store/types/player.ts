@@ -2,7 +2,7 @@ import { ITrack } from './../../types/track'
 
 export type PlayerState = {
     track: null | ITrack
-    pause: boolean
+    pauseStatus: boolean
     duration: number
     currentTime: number
     volume: number
