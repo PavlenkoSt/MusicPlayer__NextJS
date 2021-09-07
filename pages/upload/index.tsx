@@ -3,10 +3,14 @@ import AddCoverTrack from '../../components/AddCoverTrack'
 import AddTrack from '../../components/AddTrack'
 import AddTrackInfo from '../../components/AddTrackInfo'
 import StepWrapper from '../../components/StepWrapper'
+import useInput from '../../hooks/useInput'
 import MainLayout from '../../layouts/MainLayout'
 import s from '../../styles/UploadPage.module.scss'
 
 const Upload = () => {
+    const name = useInput('')
+    const artist = useInput('')
+    const text = useInput('')
 
     const [ step, setStep ] = useState(0)
 
@@ -16,7 +20,11 @@ const Upload = () => {
     return (
         <MainLayout title='upload'>
             <StepWrapper step={step}>
-                { step === 0 && <AddTrackInfo/> }
+                { step === 0 && <AddTrackInfo
+                    name={name}
+                    artist={artist}
+                    text={text}
+                /> }
                 { step === 1 && <AddCoverTrack/> }
                 { step === 2 && <AddTrack/> }
                 <div className={s.btnContainer}>

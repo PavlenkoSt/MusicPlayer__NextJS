@@ -1,5 +1,4 @@
 import React from 'react'
-import { setPicture } from '../store/slices/uploadTrackSlice'
 import FileUploader from './FileUploader'
 
 
@@ -10,7 +9,7 @@ const AddCoverTrack = () => {
             <h2 className='header'>Upload track cover</h2>
             <FileUploader
                 accept='image/*'
-                setFile={setPicture}
+                setFile={() => ({})}
             >
                 <button>Upload a track cover</button>
             </FileUploader>

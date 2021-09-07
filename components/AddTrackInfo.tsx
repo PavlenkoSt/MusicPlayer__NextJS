@@ -1,51 +1,23 @@
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
+import React, { FC } from 'react'
+import { UseInputType } from '../hooks/useInput'
 import s from '../styles/AddTrackInfo.module.scss'
 
 
-interface IFormFields {
-    name?: string
-    artist?: string
-    text?: string
+type AddTrackInfoPropsType = {
+    name: UseInputType
+    artist: UseInputType
+    text: UseInputType
 }
 
-const AddTrackInfo = () => {
+const AddTrackInfo: FC<AddTrackInfoPropsType> = ({ name, artist, text }) => {
     return (
         <div>
-            <Formik
-                initialValues={{ name: '', artist: '', text: '' }}
-                validate={values => {
-                    const errors: IFormFields = {};
-                    if (!values.name) {
-                        errors.name = 'Required';
-                    }
-                    if (!values.artist) {
-                        errors.artist = 'Required';
-                    }
-                    if (!values.text) {
-                        errors.text = 'Required';
-                    }
-                    return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                    }, 400);
-                }}
-            >
-            {({ isSubmitting, errors }) => (
-                <Form className={s.form}>
-                    <h2 className='header'>Upload track info</h2>
-                    <Field type="text" name="name" placeholder="Track name" className={`${s.field} ${errors.name ? s.err : ''}`} />
-                    <Field type="text" name="artist" placeholder="Track artist" className={`${s.field} ${errors.text ? s.err : ''}`} />
-                    <Field type="text" name="text" placeholder="Track text" as='textarea'  className={`${s.field} ${errors.text ? s.err : ''}`} />
-                    <button type="submit" disabled={isSubmitting} className={s.btn} >
-                        Save
-                    </button>
-                </Form>
-            )}
-            </Formik>
+            <div className={s.form}>
+                <h2 className='header'>Upload track info</h2>
+                <input type="text" name="name" placeholder="Track name" className={s.field} {...name} />
+                <input type="text" name="artist" placeholder="Track artist" className={s.field} {...artist} />
+                <textarea name="text" placeholder="Track text" className={s.field} {...text} />
+            </div>
         </div>
     )
 }
