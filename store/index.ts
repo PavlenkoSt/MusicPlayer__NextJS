@@ -1,8 +1,8 @@
-import { combineReducers } from "redux"
+import {createStore, Store} from 'redux'
+import {createWrapper, Context, MakeStore} from 'next-redux-wrapper'
+import rootReducer, { rootReducerType } from './reducers'
 
 
-const store = combineReducers({
+const makeStore: MakeStore<Store<rootReducerType>> = (context: Context) => createStore(rootReducer)
 
-})
-
-export default store
+export const wrapper = createWrapper<Store<rootReducerType>>(makeStore, {debug: true})

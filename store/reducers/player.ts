@@ -1,8 +1,8 @@
-import { playerActionCreatorTypes, playerActionTypes } from '../types/player'
+import { playerActionCreatorTypes, playerActionTypes, PlayerState } from '../types/player'
 import { ITrack } from './../../types/track'
 
 
-const initialState = {
+const initialState: PlayerState = {
     track: null as null | ITrack,
     pause: false,
     duration: 0,
@@ -10,7 +10,7 @@ const initialState = {
     volume: 0
 }
 
-const player = (state = initialState, action: playerActionCreatorTypes) => {
+const player = (state = initialState, action: playerActionCreatorTypes): PlayerState => {
     switch(action.type){
         case playerActionTypes.SET_TRACK: {
             return {
