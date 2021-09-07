@@ -34,7 +34,7 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
             <div className={s.info} onClick={() => router.push(`/track-list/${track._id}`)}>
                 <div className={s.pic}>
                     <Image
-                        src={track.picture}
+                        src={ `http://localhost:5000/${track.picture}` }
                         width={60}
                         height={60}
                     />

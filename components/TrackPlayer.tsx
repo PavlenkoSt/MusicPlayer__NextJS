@@ -37,7 +37,7 @@ const TrackPlayer = () => {
 
     const setAudio = () => {
         if(track){
-            audio.src = track?.audio
+            audio.src = `http://localhost:5000/${track?.audio}`
             audio.volume = volume / 100
             
             audio.onloadedmetadata = () => {

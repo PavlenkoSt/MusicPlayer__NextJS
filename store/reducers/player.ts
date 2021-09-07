@@ -12,49 +12,26 @@ const initialState: PlayerState = {
 
 const player = (state = initialState, action: playerActionCreatorTypes): PlayerState => {
     switch(action.type){
-        case playerActionTypes.SET_TRACK: {
-            return {
-                ...state, 
-                track: action.payload
-            }
-        }
+        case playerActionTypes.SET_TRACK: 
+            return { ...state, track: action.payload }
         
-        case playerActionTypes.PLAY: {
-            return {
-                ...state, 
-                pauseStatus: false
-            }
-        }
+        case playerActionTypes.PLAY:
+            return { ...state, pauseStatus: false }
 
-        case playerActionTypes.PAUSE: {
-            return {
-                ...state, 
-                pauseStatus: true
-            }
-        }
+        case playerActionTypes.PAUSE: 
+            return { ...state, pauseStatus: true }
 
-        case playerActionTypes.SET_VOLUME: {
-            return {
-                ...state, 
-                volume: action.payload
-            }
-        }
+        case playerActionTypes.SET_VOLUME: 
+            return { ...state, volume: action.payload }
+        
+        case playerActionTypes.SET_CURRENT_TIME: 
+            return { ...state, currentTime: action.payload }
 
-        case playerActionTypes.SET_CURRENT_TIME: {
-            return {
-                ...state, 
-                currentTime: action.payload
-            }
-        }
+        case playerActionTypes.SET_DURATION: 
+            return { ...state, duration: action.payload }
 
-        case playerActionTypes.SET_DURATION: {
-            return {
-                ...state, 
-                duration: action.payload
-            }
-        }
-
-        default: return state
+        default: 
+            return state
     }
 }
 
