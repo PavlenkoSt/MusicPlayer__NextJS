@@ -16,18 +16,28 @@ const index = () => {
 
     const dispatch = useDispatch() as NetxThunkDispatch
 
-    const searchInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value)
+    const searchInputHandler = async (e: ChangeEvent<HTMLInputElement>) => {
+        if(e.target.value){
+            setQuery(e.target.value)
 
-        if(timer){
-            clearTimeout(timer)
+            if(timer){
+                clearTimeout(timer)
+            }
+
+            setTimer(
+                setTimeout( async () => {
+                    await dispatch(await tracksActions.searchTracks(query))
+                }, 500)
+            )
+        }else{
+            setQuery(e.target.value)
+
+            setTimer(
+                setTimeout( async () => {
+                    await dispatch(await tracksActions.fetchTracks())
+                }, 500)
+            )
         }
-        
-        setTimer(
-            setTimeout( async () => {
-                await dispatch(await tracksActions.searchTracks(query))
-            }, 500)
-        )
     }
 
     const renderTracks = tracks.map(track => <TrackItem
@@ -45,7 +55,7 @@ const index = () => {
 
     return (
         <MainLayout title='Track List'>
-            <input type='text' placeholder='Search' value={query} onChange={searchInputHandler} />
+            <input className={s.search} type='text' placeholder='Search track' value={query} onChange={searchInputHandler} />
             <div className={s.list}>
                 { renderTracks }
             </div>
