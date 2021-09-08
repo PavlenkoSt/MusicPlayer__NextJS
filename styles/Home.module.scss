@@ -24,13 +24,13 @@
     border-radius: 10px;
     font-weight: 700;
     color: rgb(230, 230, 230);
-    background-color: rgb(38, 114, 255);
+    background-color: rgb(39, 39, 39);
     transition: all ease .2s;
     padding: 10px 0;
     overflow: hidden;
     
     &:hover{
-    background-color: rgb(0, 73, 209);
+        background-color: rgb(20, 20, 20);
     }
 
     & a{
