@@ -22,7 +22,7 @@ const TrackPage: FC<TrackPagePropsType> = ({ serverTrack }) => {
     </div>)
 
     return (
-        <MainLayout title='Track'>
+        <MainLayout title={`Track | ${track.artist} - ${track.name}`}>
                 <div className={s.btn}>
                     <Link href='/track-list'>Back to track list</Link>
                 </div>
