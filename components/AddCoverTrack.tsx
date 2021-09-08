@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import FileUploader from './FileUploader'
 
 
-const AddCoverTrack = () => {
+type AddCoverTrackPropsType = {
+    setPicture: Function
+}
 
+const AddCoverTrack: FC<AddCoverTrackPropsType> = ({ setPicture }) => {
     return (
         <div className='card'>
             <h2 className='header'>Upload track cover</h2>
             <FileUploader
                 accept='image/*'
-                setFile={() => ({})}
+                setFile={setPicture}
             >
                 <button>Upload a track cover</button>
             </FileUploader>

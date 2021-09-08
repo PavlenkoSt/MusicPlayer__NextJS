@@ -1,14 +1,20 @@
+import axios from 'axios'
+import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { FC, useState } from 'react'
 import AddComment from '../../components/AddComment'
 import MainLayout from '../../layouts/MainLayout'
 import s from '../../styles/TrackPage.module.scss'
+import { ITrack } from '../../types/track'
 
 
-const TrackPage = () => {
+type TrackPagePropsType = {
+    serverTrack: ITrack
+}
 
-    const track = {_id: '1', name: 'name', artist: 'artist', audio: '/Galaxy.mp3', picture: '/1.jpg', comments: [], listens: 0, text: 'text'}
+const TrackPage: FC<TrackPagePropsType> = ({ serverTrack }) => {
+    const [ track, serTrack ] = useState(serverTrack)
 
     return (
         <MainLayout title='Track'>
@@ -19,7 +25,7 @@ const TrackPage = () => {
                     <div className={s.main}>
                         <div className={s.pic}>
                             <Image
-                                src={track.picture}
+                                src={`http://localhost:5000/${track.picture}`}
                                 width={130}
                                 height={130}
                             />
@@ -41,3 +47,13 @@ const TrackPage = () => {
 }
 
 export default TrackPage
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+    const responce = await axios.get(`http://localhost:5000/tracks/${params?.id}`)
+
+    return {
+        props: {
+            serverTrack: responce.data
+        }
+    }
+}
