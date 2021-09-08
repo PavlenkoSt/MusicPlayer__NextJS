@@ -37,6 +37,7 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
                         src={ `http://localhost:5000/${track.picture}` }
                         width={60}
                         height={60}
+                        objectFit='cover'
                     />
                 </div>
                 <div>

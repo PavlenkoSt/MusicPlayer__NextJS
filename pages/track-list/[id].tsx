@@ -14,7 +14,12 @@ type TrackPagePropsType = {
 }
 
 const TrackPage: FC<TrackPagePropsType> = ({ serverTrack }) => {
-    const [ track, serTrack ] = useState(serverTrack)
+    const [ track, setTrack ] = useState<ITrack>(serverTrack)
+
+    const renderComments = track.comments.map(comment => <div key={comment._id} >
+        <div>Author: { comment.username }</div>
+        <div>Text: { comment.text }</div>
+    </div>)
 
     return (
         <MainLayout title='Track'>
@@ -25,6 +30,7 @@ const TrackPage: FC<TrackPagePropsType> = ({ serverTrack }) => {
                     <div className={s.main}>
                         <div className={s.pic}>
                             <Image
+                                objectFit='cover'
                                 src={`http://localhost:5000/${track.picture}`}
                                 width={130}
                                 height={130}
@@ -40,8 +46,17 @@ const TrackPage: FC<TrackPagePropsType> = ({ serverTrack }) => {
                         <h2 className={s.textHead}>Text</h2>
                         <div className={s.text}>{ track.text }</div>
                     </div>
+                    <div>
+                        <h2>Comments</h2>
+                        { renderComments.length ? renderComments : <div>
+                            Be the first to comment
+                        </div> }
+                    </div>
                 </div>
-                <AddComment/>
+                <AddComment
+                    track={track}
+                    setTrack={setTrack}
+                />
         </MainLayout>
     )
 }
