@@ -83,6 +83,7 @@ const TrackPlayer = () => {
                     current={currentTime}
                     max={duration}
                     onChange={currentTimeChange}
+                    time={true}
                 />
             </div>
             <div className={s.vol}>

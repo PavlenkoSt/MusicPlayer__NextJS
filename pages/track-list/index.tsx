@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import TrackItem from '../../components/TrackItem'
 import MainLayout from '../../layouts/MainLayout'
 import s from '../../styles/TrackListPage.module.scss'
