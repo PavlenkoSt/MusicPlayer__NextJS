@@ -57,7 +57,9 @@ const index = () => {
         <MainLayout title='Track List'>
             <input className={s.search} type='text' placeholder='Search track' value={query} onChange={searchInputHandler} />
             <div className={s.list}>
-                { renderTracks }
+                { renderTracks.length ? renderTracks : <h2 className={s.err} >
+                    No tracks
+                </h2> }
             </div>
         </MainLayout>
     )

@@ -8,7 +8,7 @@ export type TrackState = {
 
 export enum TracksActionTypes {
     FETCH_TRACKS = 'FETCH_TRACKS',
-    FETCH_TRACKS_ERROR = 'FETCH_TRACKS_ERROR'
+    FETCH_TRACKS_ERROR = 'FETCH_TRACKS_ERROR',
 }
 
 type FetchTracks = {

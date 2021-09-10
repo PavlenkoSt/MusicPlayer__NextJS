@@ -5,6 +5,9 @@ import playIcon from '../public/play.svg'
 import { useRouter } from 'next/dist/client/router'
 import useActions from '../hooks/useActions'
 import { ITrack } from '../types/track'
+import { useDispatch } from 'react-redux'
+import { NetxThunkDispatch } from '../store'
+import tracksActions from '../store/actions/tracks'
 
 
 interface ITrackItemProps {
@@ -15,12 +18,14 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
     const router = useRouter()
 
     const { setTrack, pause } = useActions()
+    const dispatch = useDispatch() as NetxThunkDispatch
 
     const playHandler = () => {
         pause()
         setTrack(track)
     }
 
+    const deleteHandler = () => dispatch(tracksActions.deleteTracks(track._id))
 
     return (
         <div className={s.item}>
@@ -45,7 +50,7 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
                     <div className={s.artist}>{ track.artist }</div>
                 </div>
             </div>
-            <div className={s.del}>
+            <div className={s.del} onClick={deleteHandler} >
                 <Image
                     src='/delete.svg'
                     width={20}

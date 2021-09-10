@@ -31,6 +31,21 @@ const tracksActions = {
                 payload: 'Ошибка подгрузки треков на этапе поиска'
             })
         }
+    },
+    deleteTracks: (id: string) => async (dispatch: Dispatch<TracksActions>) => {
+        try{
+            await axios.delete(`http://localhost:5000/tracks/${id}`)
+            const tracks = await axios.get('http://localhost:5000/tracks')
+            dispatch({
+                type: TracksActionTypes.FETCH_TRACKS,
+                payload: tracks.data
+            })
+        }catch(e){
+            dispatch({
+                type: TracksActionTypes.FETCH_TRACKS_ERROR,
+                payload: 'Ошибка удаления трека'
+            })
+        }
     }
 } 
 
